@@ -19,12 +19,12 @@ public OBAClient(WebClient.Builder builder, OBAClientProperties props) {
 
 public Mono<OBAArrivalsResponse> getArrivalsForStop(String stopId) {
   return webClient.get()
-  .uri(uri -> 
-    uri.path("/arrivals-and-departures-for-stop/{id}.json")
-    .queryParam("key", obaProps.apiKey())
-    .build("stopId"))
-    .retrieve()
-    .bodyToMono(OBAArrivalsResponse.class);
+            .uri(uri -> uri
+                    .path("/arrivals-and-departures-for-stop/{stopId}.json")
+                    .queryParam("key", obaProps.apiKey())
+                    .build(stopId))
+            .retrieve()
+            .bodyToMono(OBAArrivalsResponse.class);
 }
 
 }
