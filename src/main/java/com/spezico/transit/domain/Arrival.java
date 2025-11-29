@@ -6,5 +6,6 @@ public record Arrival(
   String headSign,
   int etaSeconds,
   long scheduledTimeEpochMs,
+  long arrivalTimeEpochMs,
   boolean predicted
 ) {};
